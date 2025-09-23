@@ -13,6 +13,7 @@ import Grid from './storyblok/Grid';
 
 storyblokInit({
 	accessToken: import.meta.env.VITE_STORYBLOK_PREVIEW_TOKEN,
+	bridge: import.meta.env.VITE_STORYBLOK_IS_PREVIEW === 'true',
 	apiOptions: {
 		/** Set the correct region for your space. Learn more: https://www.storyblok.com/docs/packages/storyblok-js */
 		region: 'eu',

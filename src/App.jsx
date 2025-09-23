@@ -1,13 +1,15 @@
-import { StoryblokComponent, useStoryblok, useStoryblokBridge } from '@storyblok/react';
+import { StoryblokComponent, useStoryblok, useStoryblokBridge } from '@storyblok/react'
+import getVersion from './utils/getVersion'
 
 export default function App() {
-  const story = useStoryblok('home', { version: 'draft' }); 
+  const story = useStoryblok('home', { version: getVersion() })
 
-  useStoryblokBridge(story?.id);
+  // Enable Storyblok Bridge only in preview
+  if (import.meta.env.VITE_STORYBLOK_IS_PREVIEW === 'true') {
+    useStoryblokBridge(story?.id)
+  }
 
-  console.log('Story fetched:', story);
+  if (!story?.content) return <div>Loading...</div>
 
-  if (!story?.content) return <div>Loading...</div>;
-
-  return <StoryblokComponent blok={story.content} />;
+  return <StoryblokComponent blok={story.content} />
 }
