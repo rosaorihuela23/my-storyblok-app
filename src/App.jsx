@@ -19,7 +19,7 @@ export default function App() {
 
   if (!story?.content) return <div>Loading...</div>;
 
-  console.log('Story fetched:', story);
+
 
   return (
     <>
