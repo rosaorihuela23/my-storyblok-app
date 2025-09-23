@@ -10,6 +10,8 @@ import Page from './storyblok/Page';
 import Teaser from './storyblok/Teaser';
 import Feature from './storyblok/Feature';
 import Grid from './storyblok/Grid';
+import BlogPage from './storyblok/BlogPage';
+import ImageBlock from './storyblok/ImageBlock';
 
 storyblokInit({
 	accessToken: import.meta.env.VITE_STORYBLOK_TOKEN,
@@ -28,6 +30,8 @@ storyblokInit({
 		teaser: Teaser,
 		feature: Feature,
 		grid: Grid,
+		blog_page: BlogPage,      
+        image_block: ImageBlock,
 	},
 });
 const router = createBrowserRouter([

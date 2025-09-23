@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 export default function App() {
 
   const location = useLocation()
-  const slug = location.pathname === '/' ? 'home' : location.pathname.slice(1)
+  const slug = location.pathname === '/' ? 'home' : location.pathname.slice(1);
 
   const story = useStoryblok(slug, { version: getVersion() })
 
