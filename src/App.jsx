@@ -8,12 +8,9 @@ export default function App() {
 
 
   const story = useStoryblok(slug, { version: getVersion() });
-
-
+  
   useStoryblokBridge(story?.id, (updatedStory) => {
-    if (updatedStory) {
-      story.content = updatedStory.content; 
-    }
+     story.content = updatedStory.content;
   });
 
   if (!story?.content) return <div>Loading...</div>;
