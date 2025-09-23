@@ -21,5 +21,15 @@ export default defineConfig(({ mode }) => {
 				env.VITE_STORYBLOK_MANAGEMENT_TOKEN,
 			),
 		},
+		server: {
+			fs: {
+				allow: ['.'],
+			},
+		},
+		preview: {
+			fs: {
+				allow: ['.'],
+			},
+		},
 	};
 });
