@@ -27,10 +27,12 @@ storyblokInit({
   },
 });
 
-// routes
+
 const router = createBrowserRouter([
-  { path: '/', element: <App slug="home" /> },
-  { path: '/blogging', element: <App slug="blogging" /> },
+  {
+    path: '*',
+    element: <App />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
