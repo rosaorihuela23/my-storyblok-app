@@ -22,11 +22,14 @@ export default defineConfig(({ mode }) => {
 			),
 		},
 		server: {
+			https: true,
+			port: 5173,
 			fs: {
 				allow: ['.'],
 			},
 		},
 		preview: {
+			https: true,
 			fs: {
 				allow: ['.'],
 			},
