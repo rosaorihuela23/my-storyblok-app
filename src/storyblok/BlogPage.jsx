@@ -1,48 +1,64 @@
 import { StoryblokComponent, storyblokEditable } from '@storyblok/react';
 
+
 export default function BlogPage({ blok }) {
   const body = blok.body || [];
+
+
+  const teaserBlocks = body.filter(b => b.component === 'teaser');
+  const imageBlocks = body.filter(b => b.component === 'image_block');
+  const otherBlocks = body.filter(
+    b => b.component !== 'teaser' && b.component !== 'image_block'
+  );
+
   const output = [];
 
-  let i = 0;
-  while (i < body.length) {
-    const nestedBlok = body[i];
 
-    // Check if current and next block are both ImageBlocks
-    if (
-      nestedBlok.component === 'image_block' &&
-      body[i + 1]?.component === 'image_block'
-    ) {
-      // Render two ImageBlocks side by side
+  teaserBlocks.forEach(teaser => {
+    output.push(
+      <div key={teaser._uid} className="full-width-block">
+        <StoryblokComponent blok={teaser} />
+      </div>
+    );
+  });
+
+
+  for (let i = 0; i < imageBlocks.length; i++) {
+    const current = imageBlocks[i];
+    const next = imageBlocks[i + 1];
+
+    if (next) {
       output.push(
         <div
-          key={`${nestedBlok._uid}-${body[i + 1]._uid}`}
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '16px',
-            justifyContent: 'center',
-          }}
+          key={`${current._uid}-${next._uid}`}
+          className="image-pair"
         >
-          <div style={{ flex: '0 1 45%' }}>
-            <StoryblokComponent blok={nestedBlok} />
+          <div className="image-wrapper">
+            <StoryblokComponent blok={current} />
           </div>
-          <div style={{ flex: '0 1 45%' }}>
-            <StoryblokComponent blok={body[i + 1]} />
+          <div className="image-wrapper">
+            <StoryblokComponent blok={next} />
           </div>
         </div>
       );
-      i += 2; // skip next block since we already rendered it
+      i += 1; 
     } else {
-      // Render normal block full width
       output.push(
-        <div key={nestedBlok._uid}>
-          <StoryblokComponent blok={nestedBlok} />
+        <div key={current._uid} className="full-width-block">
+          <StoryblokComponent blok={current} />
         </div>
       );
-      i += 1;
     }
   }
+
+
+  otherBlocks.forEach(b => {
+    output.push(
+      <div key={b._uid} className="full-width-block">
+        <StoryblokComponent blok={b} />
+      </div>
+    );
+  });
 
   return <main {...storyblokEditable(blok)}>{output}</main>;
 }

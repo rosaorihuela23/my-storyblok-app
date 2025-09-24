@@ -1,18 +1,16 @@
 import { storyblokEditable } from "@storyblok/react";
 
+
 export default function ImageBlock({ blok }) {
   return (
-    <div
-      {...storyblokEditable(blok)}
-      style={{ display: "flex", justifyContent: "center", textAlign: "center" }}
-    >
-      <div style={{ width: "50%" }}>
+    <div {...storyblokEditable(blok)} className="image-block">
+      <div className="image-wrapper">
         <img
           src={blok.image?.filename}
           alt={blok.caption || ""}
-          style={{ width: "100%", height: "auto", borderRadius: "8px" }}
+          className="image"
         />
-        {blok.caption && <p style={{ marginTop: "8px" }}>{blok.caption}</p>}
+        {blok.caption && <p className="caption">{blok.caption}</p>}
       </div>
     </div>
   );

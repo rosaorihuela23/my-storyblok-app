@@ -43,6 +43,11 @@ body {
 	text-wrap: pretty;
 }
 
+.full-width-block {
+	width: 100%;
+	margin-bottom: 2rem;
+}
+
 main {
 	display: grid;
 	gap: 2rem;
@@ -53,6 +58,7 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin: 20px;
 }
 
 footer {
@@ -79,4 +85,36 @@ footer {
 .fancy-link:hover {
 	color: #fff;
 	box-shadow: inset 200px 0 0 0 #54b3d6;
+}
+
+.image-block {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.image-wrapper {
+	width: 70%;
+}
+
+.image {
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+	display: block;
+}
+
+.caption {
+	margin-top: 8px;
+	font-size: 16px;
+	color: #fff;
+}
+
+.image-pair {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 16px;
+	justify-content: center;
+	margin-bottom: 2rem;
 }
