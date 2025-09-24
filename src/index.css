@@ -1,13 +1,65 @@
-/* Basic styling for the blank blueprint. */
-/* Feel free to remove this and apply your own styles. */
+.teaser {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
 
-@import 'https://a.storyblok.com/f/212319/x/e6ccda03b8/blueprint-blank.css';
+.teaser-headline {
+	font-family: 'Poppins', sans-serif;
+	font-size: 64px;
+	font-weight: 800;
+	line-height: 1.2;
+	color: #ff69b4;
+	margin-bottom: 2rem;
+	text-decoration: underline;
+	text-align: center;
+}
+
+html {
+	block-size: 100%;
+	color-scheme: light dark;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+}
+
+body {
+	font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+	max-inline-size: 65rem;
+	min-block-size: 100dvh;
+	margin: 0 auto;
+	padding: 1rem;
+	color: var(--text);
+	background-color: var(--surface);
+	font-size: clamp(1rem, -0.5vw + 1.3rem, 1.2rem);
+	text-rendering: optimizeSpeed;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-wrap: pretty;
+}
+
+main {
+	display: grid;
+	gap: 2rem;
+	padding: max(2vh, 1rem) min(2vw, 2rem);
+}
 
 .links-wrapper {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
+}
+
+footer {
+	border-block-start: 1px solid;
+	text-align: center;
+	padding: max(2vh, 1rem) min(2vw, 2rem);
+	margin: max(2vh, 5rem) min(2vw, 3rem);
 }
 
 .fancy-link {
