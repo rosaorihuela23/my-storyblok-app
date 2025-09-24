@@ -12,6 +12,7 @@ import Feature from "./storyblok/Feature";
 import Grid from "./storyblok/Grid";
 import BlogPage from "./storyblok/BlogPage";
 import ImageBlock from "./storyblok/ImageBlock";
+import Links from './storyblok/Links.jsx'
 
 storyblokInit({
   accessToken: import.meta.env.VITE_STORYBLOK_TOKEN,
@@ -24,6 +25,7 @@ storyblokInit({
     grid: Grid,
     image_block: ImageBlock, 
     blog_page: BlogPage, 
+    links: Links,
   },
 });
 
